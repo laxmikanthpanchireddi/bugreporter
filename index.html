@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bug reporter </title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #searchContainer {
+            margin-bottom: 20px;
+            margin-left: 38%;
+            margin-top: 60px;
+        }
+
+        #searchInput {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 300px;
+            margin-right: 10px;
+        }
+
+        #searchButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #searchButton:hover {
+            background-color: #0056b3;
+        }
+
+        #wordList {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #wordList li {
+            padding: 10px;
+            font-size: 18px;
+            border-bottom: 1px solid #ccc;
+            display: none; /* Hide all items initially */
+        }
+
+        .found-word {
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-left: 45%
+        }
+    </style>
+</head>
+<body>
+    <div id="searchContainer">
+        <input type="text" id="searchInput" placeholder="Enter The Website">
+        <button id="searchButton" onclick="searchWord()">Search</button>
+    </div>
+
+    <ul id="wordList">
+            <li>E-Gazette</li>
+            <li>My Adhaar</li>
+            <li>Kendriya Police Kalyan Bhandar</li>
+            <li>MOSPI(SDGs, KPIs)</li>
+            <li>Yoga Break Protocol/App</li>
+            <li>Open Government Data</li>
+            <li>Vidhi Sahitya Prakashan</li>
+            <li>Election Commission of India</li>
+            <li>India Code Portal</li>
+            <li>Free Legal Aid</li>
+            <li>Ministry of Personnel, Public Grievances & Pensions</li>
+            <li>Kerala Police</li>
+            <li>Goa Police</li>
+            <li>Delhi Police</li>
+            <li>Chandigarh Police</li>
+            <li>Central Bureau of Investigation(C.B.I.)</li>
+            <li>North-East Council</li>
+            <li>National Human Right Commission</li>
+            <li>Department of Official Language</li>
+            <li>Department of Justice</li>
+            <li>Parliament of India</li>
+            <li>Allied Organisation</li>
+            <li>Police aur Seva</li>
+            <li>National Institute of Disaster Management, I.P. Estate, Ring Road, N.Delhi-2</li>
+            <li>National Disaster Management Authority, NDMA Bhawan, A-1, Safdarjung Enclave, N.De…</li>
+            <li>Attached / Subordinate Offices</li>
+            <li>National Civil Defence College, Nagpur-440001</li>
+            <li>Committee of Parliament on Official Language</li>
+            <li>National Disaster Response Force</li>
+            <li>North Eastern Police Academy, Umsaw, Umiam-793123, Meghalaya</li>
+            <li>Zonal Council Secretariat, 9/11, Jamnagar House, Mansingh Road, New Delhi 11</li>
+            <li>Registrar General and Census Commissioner of India, 2-A, Man Singh Road, New De…</li>
+            <li>Inter-State Council Secretariat, Vigyan Bhawan Annexe, Maulana Azad Road, New Delh…</li>
+            <li>National Fire Service College, Palm Road, Civil Lines, Nagpur-440001</li>
+            <li>Sardar Vallabh Bhai Patel National Police Academy, Hyderbad, Andra Pradesh-5002…</li>
+            <li>Narcotic Control Bureau, West Block-I, Wing No.5, R.K. Puram, New Delhi</li>
+            <li>Central Hindi Training Institute, 2-A, Prithavi Raj Road, New Delhi-110011</li>
+            <li>Directorate of Coordination Police Wireless, Block No.9, CGO Complex, Lodhi Roa…</li>
+            <li>National Crime Record Bureau, R.K. Puram, New Delhi</li>
+            <li>Central Forensic Science Laboratory, CBI, Kendriya Karyalaya Parisar, CGO Compl…</li>
+            <li>National Insititute of Criminology and Forensics Science, Sector-3, Outer Ring …</li>
+            <li>Bureau of Police Reasearch & Development NH-8, Mahipalpur, New Delhi - 110037</li>
+            <li>Assam Rifles, Shillong-793011, Meghalaya</li>
+            <li>Sashastra Seema Bal, Block-V(East), R.K. Puram, New Delhi-66</li>
+            <li>National Security Guard, Mehram Nagar, Near Domestic Airport, Palam, New Delhi-…</li>
+            <li>Indo-Tibet Border Police, CGO Complex, Lodhi Road, New Delhi-3</li>
+            <li>Central Industrial Security Force, CGO Complex, Lodhi Road, New Delhi-3</li>
+            <li>Central Reserve Police Force, CGO Complex, Lodhi Road, New Delhi-3</li>
+            <li>Border Security Force, CGO Complex, Lodhi Road, New Delhi-3</li>
+            <li>AP INTER RESULTS </li>
+            <li>AP SSC RESULTS</li>
+            <li>IRCTC</li>
+            <li>FOOD COMMISION </li>
+            <li>AP POLICE </li>
+            <li>INDIA RESULTS</li>
+            <li>CID</li>
+        
+    </ul>
+
+    <script>
+        function searchWord() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const words = document.querySelectorAll('#wordList li');
+            let found = false;
+
+            words.forEach(word => {
+                word.style.display = 'none'; // Hide all words initially
+                word.classList.remove('found-word');
+                word.onclick = null;
+
+                if (word.textContent.toLowerCase() === input) {
+                    word.style.display = 'block'; // Display the matching word
+                    word.classList.add('found-word');
+                    word.onclick = function() {
+                        window.open('reporting.html', '_blank');
+                    };
+                    found = true;
+                }
+            });
+
+            if (!found) {
+                alert('Word not found!');
+            }
+        }
+    </script>
+</body>
+</html>

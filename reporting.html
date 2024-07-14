@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reporting.css">
+    <title>bug reporter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .note-box {
+        width: 80%;
+        height: 400px;
+        margin-left: 150px;
+        opacity: 0.9;
+        font-size: 18px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .submit-btn {
+            display: block;
+            margin-top: 10px;
+            margin-left: 150px;
+            size: 80px;
+
+        }
+        .output {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: xx-large;
+            text-align: center;color: aliceblue;
+
+        }
+    </style>
+</head>
+<body>
+
+    <h1 >Submit Your Note</h1>
+    <form id="noteForm">
+        <textarea id="noteBox" class="note-box" placeholder="Enter your note here..."></textarea>
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+    <div id="output" class="output"></div>
+
+    <script>
+        document.getElementById('noteForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('output').innerText = 'Submitted';
+            
+        });
+    </script>
+</body>
+<footer>email : bugreporting@gmail.com</footer>
+</html>
