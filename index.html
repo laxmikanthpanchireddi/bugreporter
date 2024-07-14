@@ -12,6 +12,7 @@
         <div class="container">
           <form id="login-box">
             <input type="text" id="username" placeholder="Phone number"> <br>
+            <input type="text" id="email" placeholder="email"> <br>
             <input type="password" id="password" placeholder="Password"><br>
             <button class="button btn btn-primary">Login</button>
           </form>
@@ -21,6 +22,7 @@
       event.preventDefault(); 
 
       var username = document.getElementById("username").value;
+      var username = document.getElementById("email").value;
       var password = document.getElementById("password").value;
 
       window.open('index1.html', '_blank');
